@@ -10,7 +10,7 @@ import {
   FaArrowRight,
   FaGraduationCap,
 } from "react-icons/fa";
-import "./State.css";
+import "./States.css";
 
 export default function StatesPage() {
   const highlights = [
