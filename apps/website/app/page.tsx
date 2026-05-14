@@ -429,10 +429,10 @@ export default function Home() {
             </p>
           </div>
 
-          <button className="contact-btn">
-            <span className="contact-icon">🎧</span>
-            Contact Us
-          </button>
+          <a href="/contact-us" className="contact-btn">
+  <span className="contact-icon">🎧</span>
+  Contact Us
+</a>
         </div>
       </section>
 
