@@ -168,51 +168,48 @@ const STATS: StatProps[] = [
     label: "Productivity Boost",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
   },
-];
-
-const CHALLENGES = [
+];const CHALLENGES = [
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>`,
-    challenge: "Rapid Skill Changes in the Workplace",
+    challenge: "Rapid Skill Changes at Work",
     description:
-      "Industries are evolving quickly due to technological advancements and changing market demands. Employees must regularly update their skills to stay relevant.",
+      "Industries are evolving quickly as technologies and market needs change. Employees must keep learning to stay relevant.",
     solution:
-      "NeuroLXP enables organizations to deliver continuous learning programs and skill-based training courses that help employees stay updated with new technologies, tools, and industry practices.",
+      "NeuroLXP delivers continuous learning and skill-based courses that help employees stay updated with new tools, technologies, and practices.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-    challenge: "Training Large and Distributed Workforces",
+    challenge: "Training Distributed Teams",
     description:
-      "Modern organizations often operate across multiple locations and remote environments, making traditional training methods difficult to manage.",
+      "Modern organizations work across offices, regions, and remote teams. Traditional training becomes hard to manage.",
     solution:
-      "NeuroLXP supports scalable digital learning delivery, allowing companies to train employees across different offices, regions, and remote teams through a single platform.",
+      "NeuroLXP supports scalable digital learning, helping companies train employees across locations from one platform.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>`,
-    challenge: "Low Engagement in Traditional Training Programs",
+    challenge: "Low Training Engagement",
     description:
-      "Conventional corporate training sessions often rely on lengthy presentations that may not fully engage employees.",
+      "Conventional training often relies on long presentations that fail to keep employees actively involved.",
     solution:
-      "NeuroLXP introduces interactive learning experiences, including gamified activities, scenario-based learning, quizzes, and collaborative discussions that make training more engaging and effective.",
+      "NeuroLXP improves engagement with interactive lessons, gamified activities, quizzes, scenarios, and collaborative learning.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
-    challenge: "Tracking Employee Learning Progress",
+    challenge: "Tracking Learning Progress",
     description:
-      "Organizations need visibility into employee learning progress and training effectiveness.",
+      "Organizations need clear visibility into employee progress, participation, completion, and training outcomes.",
     solution:
-      "NeuroLXP provides advanced analytics and reporting dashboards that track employee participation, skill development, course completion, and assessment performance.",
+      "NeuroLXP provides analytics and dashboards to track learning activity, skills, course completion, and assessment performance.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
-    challenge: "Aligning Learning with Business Goals",
+    challenge: "Aligning Learning with Goals",
     description:
-      "Corporate training must directly support organizational objectives such as productivity, innovation, and employee retention.",
+      "Corporate learning must support business goals such as productivity, innovation, retention, and workforce readiness.",
     solution:
-      "NeuroLXP enables organizations to design career pathways, role-based learning programs, and competency-based training that align employee development with business goals.",
+      "NeuroLXP enables role-based learning, career pathways, and competency training aligned with organizational priorities.",
   },
 ];
-
 const BENEFITS = [
   "Build a culture of continuous learning",
   "Improve employee productivity and performance",
