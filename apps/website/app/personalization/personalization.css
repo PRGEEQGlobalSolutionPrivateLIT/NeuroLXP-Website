@@ -27,13 +27,7 @@
   --font-display: Segoe UI, sans-serif;
   --font-body: Segoe UI, sans-serif;
   --transition: all 0.3s cubic-bezier(0.5, 0, 0.2, 1);
-}
 
-.personalization-page * {
-  box-sizing: border-box;
-}
-
-.personalization-page {
   min-height: 100vh;
   background-color: var(--neu-bg);
   font-family: var(--font-body);
@@ -42,30 +36,48 @@
   overflow-x: hidden;
 }
 
+.personalization-page * {
+  box-sizing: border-box;
+}
+
+.personalization-page img {
+  max-width: 100%;
+  height: auto;
+}
+
 .personalization-page .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--neu-bg-dark), transparent);
   margin: 0 2rem;
 }
 
+/* HERO */
+
 .personalization-page .hero {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 2rem 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
   gap: 64px;
   align-items: center;
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(0.8); }
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(0.8);
+  }
 }
 
 .personalization-page .heroTitle {
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: clamp(32px, 4vw, 40px);
   font-weight: 900;
   color: var(--neu-text-primary);
   line-height: 1.15;
@@ -77,20 +89,20 @@
   color: var(--neu-primary);
 }
 
-.personalization-page .heroText {
-  font-size: 18px;
+.personalization-page .heroText,
+.personalization-page .heroTextLast {
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   line-height: 1.75;
-  margin-bottom: 12px;
   text-align: justify;
 }
 
+.personalization-page .heroText {
+  margin-bottom: 12px;
+}
+
 .personalization-page .heroTextLast {
-  font-size: 18px;
-  color: var(--neu-text-secondary);
-  line-height: 1.75;
   margin-bottom: 36px;
-  text-align: justify;
 }
 
 .personalization-page .heroActions {
@@ -99,20 +111,31 @@
   flex-wrap: wrap;
 }
 
-.personalization-page .btnPrimary {
+.personalization-page .btnPrimary,
+.personalization-page .btnSecondary,
+.personalization-page .btnWhite,
+.personalization-page .btnOutlineWhite,
+.personalization-page .btnBannerPrimary,
+.personalization-page .btnBannerSecondary {
   padding: 14px 32px;
   border-radius: var(--neu-radius-full);
   font-size: 15px;
   font-weight: 700;
-  color: var(--neu-primary);
   background: var(--neu-bg);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff!important;
   border: none;
   cursor: pointer;
   transition: var(--transition);
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-body);
+  min-height: 48px;
+}
+
+.personalization-page .btnPrimary {
+  color: var(--neu-primary);
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
 }
 
 .personalization-page .btnPrimary:hover {
@@ -127,19 +150,8 @@
 }
 
 .personalization-page .btnSecondary {
-  padding: 14px 32px;
-  border-radius: var(--neu-radius-full);
-  font-size: 0.92rem;
-  font-weight: 700;
   color: var(--neu-text-secondary);
-  background: var(--neu-bg);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff !important;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  display: inline-block;
-  font-family: var(--font-body);
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
 }
 
 .personalization-page .btnSecondary:hover {
@@ -152,57 +164,41 @@
   box-shadow: var(--neu-shadow-inset);
 }
 
-.personalization-page .btnWhite {
-  padding: 14px 32px;
-  border-radius: var(--neu-radius-full);
-  font-size: 0.92rem;
-  font-weight: 700;
+.personalization-page .btnWhite,
+.personalization-page .btnOutlineWhite,
+.personalization-page .btnBannerPrimary,
+.personalization-page .btnBannerSecondary {
   color: var(--neu-text-secondary);
-  background: var(--neu-bg);
   box-shadow: var(--neu-shadow-inset);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-body);
 }
 
-.personalization-page .btnWhite:hover {
+.personalization-page .btnBannerPrimary {
+  color: var(--neu-primary);
+}
+
+.personalization-page .btnWhite:hover,
+.personalization-page .btnOutlineWhite:hover,
+.personalization-page .btnBannerPrimary:hover,
+.personalization-page .btnBannerSecondary:hover {
   transform: translateY(-3px);
   box-shadow: var(--neu-shadow-inset-sm);
-}
-
-.personalization-page .btnOutlineWhite {
-  padding: 14px 32px;
-  border-radius: var(--neu-radius-full);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--neu-text-secondary);
-  background: var(--neu-bg);
-  box-shadow: var(--neu-shadow-inset);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-body);
-}
-
-.personalization-page .btnOutlineWhite:hover {
-  box-shadow: var(--neu-shadow-inset-sm);
-  transform: translateY(-3px);
   color: var(--neu-primary);
 }
 
 .personalization-page .heroVisual {
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .personalization-page .heroCard {
   background: var(--neu-bg);
   border-radius: var(--neu-radius-xl);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff !important;
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
   padding: 32px;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
+  min-width: 0;
 }
 
 .personalization-page .heroCardBadge {
@@ -272,6 +268,7 @@
   flex-direction: column;
   gap: 11px;
   flex: 1;
+  min-width: 0;
 }
 
 .personalization-page .heroLegendItem {
@@ -282,6 +279,7 @@
   border-radius: var(--neu-radius-md);
   box-shadow: var(--neu-shadow-inset-sm);
   transition: var(--transition);
+  min-width: 0;
 }
 
 .personalization-page .heroLegendItem:hover {
@@ -295,14 +293,25 @@
   flex-shrink: 0;
 }
 
-.personalization-page .swatch1 { background: #5e72e4; }
-.personalization-page .swatch2 { background: #10b981; }
-.personalization-page .swatch3 { background: #00b4d8; }
-.personalization-page .swatch4 { background: #7c3aed; }
+.personalization-page .swatch1 {
+  background: #5e72e4;
+}
 
-.personalization-page .heroLegendText { 
-  flex: 1; 
-  min-width: 0; 
+.personalization-page .swatch2 {
+  background: #10b981;
+}
+
+.personalization-page .swatch3 {
+  background: #00b4d8;
+}
+
+.personalization-page .swatch4 {
+  background: #7c3aed;
+}
+
+.personalization-page .heroLegendText {
+  flex: 1;
+  min-width: 0;
 }
 
 .personalization-page .heroLegendName {
@@ -354,6 +363,7 @@
 .personalization-page .heroProgressLabel {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
   font-size: 0.79rem;
   font-weight: 600;
   color: var(--neu-text-secondary);
@@ -402,6 +412,7 @@
   border-top: 1px solid var(--neu-bg-dark);
   display: flex;
   justify-content: space-around;
+  gap: 12px;
 }
 
 .personalization-page .heroCardStat {
@@ -423,6 +434,8 @@
   letter-spacing: 0.5px;
 }
 
+/* SECTIONS */
+
 .personalization-page .section {
   max-width: 1200px;
   margin: 0 auto;
@@ -443,9 +456,13 @@
   margin-bottom: 52px;
 }
 
-.personalization-page .sectionTitle {
+.personalization-page .sectionTitle,
+.personalization-page .whatIsTitle,
+.personalization-page .whyTitle,
+.personalization-page .intelTitle,
+.personalization-page .futureBannerTitle {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: clamp(26px, 3vw, 32px);
   font-weight: 900;
   color: var(--neu-text-primary);
   letter-spacing: -0.5px;
@@ -454,13 +471,15 @@
 }
 
 .personalization-page .sectionDesc {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   max-width: 640px;
   margin: 0 auto;
   line-height: 1.75;
   text-align: center;
 }
+
+/* STATS */
 
 .personalization-page .statsBar {
   max-width: 1200px;
@@ -470,17 +489,18 @@
 
 .personalization-page .statsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
 .personalization-page .statCard {
   background: var(--neu-bg);
   border-radius: var(--neu-radius-lg);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff!important;
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
   padding: 28px 20px;
   text-align: center;
   transition: var(--transition);
+  min-width: 0;
 }
 
 .personalization-page .statCard:hover {
@@ -490,7 +510,7 @@
 
 .personalization-page .statNumber {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 900;
   color: var(--neu-primary);
   line-height: 1;
@@ -504,27 +524,22 @@
   line-height: 1.5;
 }
 
-.personalization-page .whatIsGrid {
+/* WHAT IS */
+
+.personalization-page .whatIsGrid,
+.personalization-page .whyGrid,
+.personalization-page .intelGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
   gap: 56px;
   align-items: start;
 }
 
-.questions{
+.questions {
   margin-top: 30px;
 }
 
-.imgQuestions {
-  width: 100%;
-  border-radius: var(--neu-radius-lg);
-  overflow: hidden;
-  box-shadow: var(--neu-shadow-md);
-  background: var(--neu-bg);
-  padding: 10px;
-  margin-top: 45px;
-}
-
+.imgQuestions,
 .imgBenefitsRight {
   width: 100%;
   border-radius: var(--neu-radius-lg);
@@ -532,6 +547,13 @@
   box-shadow: var(--neu-shadow-md);
   background: var(--neu-bg);
   padding: 10px;
+}
+
+.imgQuestions {
+  margin-top: 45px;
+}
+
+.imgBenefitsRight {
   margin-top: 32px;
 }
 
@@ -542,18 +564,8 @@
   display: block;
 }
 
-.personalization-page .whatIsTitle {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--neu-text-primary);
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-  line-height: 1.2;
-}
-
 .personalization-page .bodyText {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   line-height: 1.75;
   margin-bottom: 14px;
@@ -615,6 +627,8 @@
   line-height: 1.6;
 }
 
+/* ACCORDION */
+
 .personalization-page .accordion {
   display: flex;
   flex-direction: column;
@@ -623,7 +637,6 @@
 
 .personalization-page .accordionItem {
   background: var(--neu-bg);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff !important;
   border-radius: var(--neu-radius-lg);
   box-shadow: var(--neu-shadow-md);
   overflow: hidden;
@@ -646,7 +659,6 @@
   color: var(--neu-text-primary);
   text-align: left;
   transition: var(--transition);
-  box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff !important;
 }
 
 .personalization-page .accordionTrigger:hover {
@@ -690,9 +702,11 @@
   padding: 0 22px 20px;
 }
 
+/* APPROACH */
+
 .personalization-page .approachGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-top: 8px;
 }
@@ -703,6 +717,7 @@
   box-shadow: var(--neu-shadow-md);
   padding: 28px 26px;
   transition: var(--transition);
+  min-width: 0;
 }
 
 .personalization-page .approachCard:hover {
@@ -711,37 +726,39 @@
 }
 
 .personalization-page .approachCardNum {
-    border-radius: var(--neu-radius-sm);
-    width: 46px;
-    height: 46px;
-    box-shadow: var(--neu-shadow-flat);
-    background: var(--neu-bg);
-    font-family: var(--font-display);
-    color: var(--neu-secondary);
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 16px;
-    font-size: 26px;
-    font-weight: 900;
-    display: flex;
+  border-radius: var(--neu-radius-sm);
+  width: 46px;
+  height: 46px;
+  box-shadow: var(--neu-shadow-flat);
+  background: var(--neu-bg);
+  font-family: var(--font-display);
+  color: var(--neu-secondary);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 26px;
+  font-weight: 900;
+  display: flex;
 }
 
 .personalization-page .approachCardTitle {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(21px, 2.2vw, 24px);
   font-weight: 800;
   color: var(--neu-text-primary);
   margin-bottom: 8px;
 }
 
 .personalization-page .approachCardDesc {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   line-height: 1.65;
 }
 
+/* STEPS */
+
 .personalization-page .stepsIntroText {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   max-width: 640px;
   margin: -32px auto 48px;
@@ -768,7 +785,7 @@
 
 .personalization-page .stepRow {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px minmax(0, 1fr);
   gap: 28px;
   padding: 22px 0;
 }
@@ -803,11 +820,12 @@
   background: var(--neu-bg);
   border-radius: var(--neu-radius-lg);
   box-shadow: var(--neu-shadow-md);
-  padding: 24px;          
+  padding: 24px;
   transition: var(--transition);
   overflow: hidden;
   display: flex;
   align-items: stretch;
+  min-width: 0;
 }
 
 .personalization-page .stepBody:hover {
@@ -820,6 +838,7 @@
   gap: 32px;
   align-items: center;
   width: 100%;
+  min-width: 0;
 }
 
 .personalization-page .stepBodyLeft {
@@ -839,6 +858,7 @@
   align-items: center;
   justify-content: center;
   padding: 18px;
+  overflow: hidden;
 }
 
 .personalization-page .stepViz {
@@ -909,8 +929,13 @@
 }
 
 @keyframes barGrowIn {
-  from { width: 0 !important; }
-  to   { width: var(--bar-w, 100%); }
+  from {
+    width: 0 !important;
+  }
+
+  to {
+    width: var(--bar-w, 100%);
+  }
 }
 
 .personalization-page .stepVizBarPct {
@@ -925,6 +950,7 @@
   position: relative;
   height: 116px;
   width: 100%;
+  min-width: 220px;
 }
 
 .personalization-page .stepVizPathwaySvg {
@@ -953,40 +979,63 @@
 }
 
 .personalization-page .stepVizNodeStart {
-  left: 0; top: 42px; width: 44px; height: 32px;
-  background: #ede9fe; color: #6d28d9;
+  left: 0;
+  top: 42px;
+  width: 44px;
+  height: 32px;
+  background: #ede9fe;
+  color: #6d28d9;
 }
+
 .personalization-page .stepVizNodeFast {
-  left: 105px; top: 6px; width: 52px; height: 32px;
-  background: #dbeafe; color: #2d4edc;
+  left: 105px;
+  top: 6px;
+  width: 52px;
+  height: 32px;
+  background: #dbeafe;
+  color: #2d4edc;
 }
+
 .personalization-page .stepVizNodeSupport {
-  left: 105px; top: 78px; width: 52px; height: 32px;
-  background: #ede9fe; color: #6d28d9;
+  left: 105px;
+  top: 78px;
+  width: 52px;
+  height: 32px;
+  background: #ede9fe;
+  color: #6d28d9;
 }
+
 .personalization-page .stepVizNodeGoal {
-  left: 168px; top: 42px; width: 44px; height: 32px;
-  background: #d1fae5; color: #047857;
+  left: 168px;
+  top: 42px;
+  width: 44px;
+  height: 32px;
+  background: #d1fae5;
+  color: #047857;
 }
 
 .personalization-page .pathDraw {
   stroke-dashoffset: 50;
   animation: drawLine 0.5s ease forwards;
 }
-.personalization-page .pathDraw1 { animation-delay: 0.2s; }
-.personalization-page .pathDraw2 { 
-  stroke-dashoffset: 65; 
-  animation-delay: 0.7s; 
+
+.personalization-page .pathDraw1 {
+  animation-delay: 0.2s;
 }
 
-.personalization-page .pathDraw3 { 
-  stroke-dashoffset: 65; 
-  animation-delay: 0.85s; 
+.personalization-page .pathDraw2 {
+  stroke-dashoffset: 65;
+  animation-delay: 0.7s;
 }
 
-.personalization-page .pathDraw4 { 
-  stroke-dashoffset: 50; 
-  animation-delay: 1.2s; 
+.personalization-page .pathDraw3 {
+  stroke-dashoffset: 65;
+  animation-delay: 0.85s;
+}
+
+.personalization-page .pathDraw4 {
+  stroke-dashoffset: 50;
+  animation-delay: 1.2s;
 }
 
 .personalization-page .pathForkDot {
@@ -995,11 +1044,15 @@
 }
 
 @keyframes drawLine {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 .personalization-page .stepVizRecRow {
@@ -1014,8 +1067,15 @@
 }
 
 @keyframes slideInUp {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .personalization-page .stepVizRecText {
@@ -1092,7 +1152,9 @@
 }
 
 @keyframes barGrowUp {
-  to { height: var(--target-h, 100%); }
+  to {
+    height: var(--target-h, 100%);
+  }
 }
 
 .personalization-page .stepVizBadges {
@@ -1130,14 +1192,14 @@
 
 .personalization-page .stepTitle {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(21px, 2.3vw, 24px);
   font-weight: 900;
   color: var(--neu-text-primary);
   margin-bottom: 4px;
 }
 
 .personalization-page .stepSubtitle {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   font-weight: 700;
   color: var(--neu-text-muted);
   margin-bottom: 18px;
@@ -1169,63 +1231,70 @@
 }
 
 .personalization-page .stepClosing {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-muted);
   font-style: italic;
   padding-top: 14px;
   border-top: 1px solid var(--neu-bg-dark);
 }
 
-.personalization-page .tagColor1 { 
-  color: #2d4edc; 
-  background: #dbeafe; 
+.personalization-page .tagColor1 {
+  color: #2d4edc;
+  background: #dbeafe;
 }
 
-.personalization-page .tagColor2 { 
-  color: #6d28d9; 
-  background: #ede9fe; 
+.personalization-page .tagColor2 {
+  color: #6d28d9;
+  background: #ede9fe;
 }
 
-.personalization-page .tagColor3 { 
-  color: #0369a1; 
-  background: #e0f2fe; 
+.personalization-page .tagColor3 {
+  color: #0369a1;
+  background: #e0f2fe;
 }
 
-.personalization-page .tagColor4 { 
-  color: #065f46; 
-  background: #d1fae5; 
+.personalization-page .tagColor4 {
+  color: #065f46;
+  background: #d1fae5;
 }
 
-.personalization-page .dot1 { background: var(--neu-primary); }
-.personalization-page .dot2 { background: var(--neu-accent); }
-.personalization-page .dot3 { background: var(--neu-secondary); }
-.personalization-page .dot4 { background: var(--neu-success); }
-
-.personalization-page .circle1 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
-.personalization-page .circle2 { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
-.personalization-page .circle3 { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
-.personalization-page .circle4 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
-
-.personalization-page .whyGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
+.personalization-page .dot1 {
+  background: var(--neu-primary);
 }
 
-.personalization-page .whyTitle {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--neu-text-primary);
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-  line-height: 1.2;
+.personalization-page .dot2 {
+  background: var(--neu-accent);
 }
+
+.personalization-page .dot3 {
+  background: var(--neu-secondary);
+}
+
+.personalization-page .dot4 {
+  background: var(--neu-success);
+}
+
+.personalization-page .circle1 {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.personalization-page .circle2 {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+}
+
+.personalization-page .circle3 {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+}
+
+.personalization-page .circle4 {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+}
+
+/* WHY / OUTCOMES */
 
 .personalization-page .outcomesGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -1250,6 +1319,8 @@
   color: var(--neu-text-primary);
   line-height: 1.4;
 }
+
+/* BENEFITS */
 
 .personalization-page .benefitsTabs {
   display: flex;
@@ -1277,7 +1348,6 @@
   color: var(--neu-primary);
   transform: translateY(-2px);
   box-shadow: var(--neu-shadow-lg);
-  transition: var(--transition);
 }
 
 .personalization-page .tabBtnActive {
@@ -1287,28 +1357,30 @@
 
 .personalization-page .benefitsTabContent {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   align-items: start;
 }
 
-.personalization-page .benefitsLeft {
+.personalization-page .benefitsLeft,
+.personalization-page .benefitsRight {
   background: var(--neu-bg);
   border-radius: var(--neu-radius-lg);
   box-shadow: var(--neu-shadow-md);
   padding: 32px;
+  min-width: 0;
 }
 
 .personalization-page .benefitsLeftTitle {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(21px, 2.3vw, 24px);
   font-weight: 900;
   color: var(--neu-text-primary);
   margin-bottom: 8px;
 }
 
 .personalization-page .benefitsLeftSub {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-muted);
   margin-bottom: 24px;
   line-height: 1.5;
@@ -1361,13 +1433,6 @@
   background: var(--neu-success);
 }
 
-.personalization-page .benefitsRight {
-  background: var(--neu-bg);
-  border-radius: var(--neu-radius-lg);
-  box-shadow: var(--neu-shadow-md);
-  padding: 32px;
-}
-
 .personalization-page .benefitsRightLabel {
   font-family: var(--font-display);
   font-size: 14px;
@@ -1388,22 +1453,7 @@
   line-height: 1.6;
 }
 
-.personalization-page .intelGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.personalization-page .intelTitle {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--neu-text-primary);
-  letter-spacing: -0.5px;
-  margin-bottom: 18px;
-  line-height: 1.2;
-}
+/* INTELLIGENCE */
 
 .personalization-page .pillGroup {
   display: flex;
@@ -1446,6 +1496,7 @@
   align-items: center;
   gap: 18px;
   transition: var(--transition);
+  min-width: 0;
 }
 
 .personalization-page .intelCard:hover {
@@ -1467,9 +1518,11 @@
   line-height: 1.5;
 }
 
+/* ERA */
+
 .personalization-page .eraGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-bottom: 28px;
 }
@@ -1490,16 +1543,18 @@
 
 .personalization-page .eraCardTitle {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: clamp(21px, 2.3vw, 24px);
   color: var(--neu-text-primary);
   margin-bottom: 8px;
 }
 
 .personalization-page .eraCardDesc {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   line-height: 1.65;
 }
+
+/* FUTURE BANNER */
 
 .personalization-page .futureBanner {
   background: var(--neu-bg);
@@ -1540,18 +1595,8 @@
   z-index: 1;
 }
 
-.personalization-page .futureBannerTitle {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--neu-text-primary);
-  margin-bottom: 16px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-}
-
 .personalization-page .futureBannerBody {
-  font-size: 18px;
+  font-size: clamp(16px, 1.7vw, 18px);
   color: var(--neu-text-secondary);
   max-width: 640px;
   margin: 0 auto 12px;
@@ -1573,151 +1618,14 @@
   flex-wrap: wrap;
 }
 
-.personalization-page .btnBannerPrimary {
-  padding: 14px 32px;
-  border-radius: var(--neu-radius-full);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--neu-primary);
-  background: var(--neu-bg);
-  box-shadow: var(--neu-shadow-inset);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-body);
-}
-
-.personalization-page .btnBannerPrimary:hover {
-  box-shadow: var(--neu-shadow-inset-sm);
-}
-
-.personalization-page .btnBannerSecondary {
-  padding: 14px 32px;
-  border-radius: var(--neu-radius-full);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--neu-text-secondary);
-  background: var(--neu-bg);
-  box-shadow: var(--neu-shadow-inset);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-body);
-}
-
-.personalization-page .btnBannerSecondary:hover {
-  box-shadow: var(--neu-shadow-inset-sm);
-  color: var(--neu-primary);
-}
-
 .personalization-page .lnkToggle {
   cursor: pointer;
   color: var(--neu-primary);
   text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-  .personalization-page .heroChartRow {
-    flex-direction: column;
-    align-items: center;
-  }
+/* BREADCRUMB */
 
-  .personalization-page .heroLegend {
-    width: 100%;
-  }
-
-  .personalization-page .statsGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .personalization-page .outcomesGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .heroActions {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 768px) {
-  .personalization-page .hero {
-    grid-template-columns: 1fr;
-    padding: 40px 1.5rem;
-    gap: 40px;
-  }
-
-  .personalization-page .heroVisual {
-    order: -1;
-  }
-
-  .personalization-page .whatIsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .statsGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .personalization-page .approachGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .stepsTimeline::before {
-    display: none;
-  }
-
-  .personalization-page .stepRow {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .personalization-page .whyGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .outcomesGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .personalization-page .benefitsTabContent {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .intelGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .eraGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .personalization-page .futureBanner {
-    padding: 44px 24px;
-  }
-
-  .personalization-page .stepBodyInner {
-    flex-direction: column;
-  }
-  .personalization-page .stepSvgWrap {
-    width: 100%;
-    height: 200px;
-  }
-
-}
-
-@media (max-width: 1024px) {
-  .personalization-page .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .personalization-page .eraGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .personalization-page .heroProgressLabel {
-    font-size: 1rem;
-  }
-}
 .personalization-page .neu-breadcrumb-nav {
   max-width: 1200px;
   margin: 0 auto 24px;
@@ -1725,6 +1633,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  overflow-x: auto;
 }
 
 .personalization-page .neu-breadcrumb {
@@ -1785,13 +1694,244 @@
   line-height: 1;
 }
 
+/* TABLET */
+
+@media (max-width: 1024px) {
+  .personalization-page .hero,
+  .personalization-page .whatIsGrid,
+  .personalization-page .whyGrid,
+  .personalization-page .intelGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .personalization-page .heroVisual {
+    order: -1;
+  }
+
+  .personalization-page .heroCard {
+    max-width: 520px;
+  }
+
+  .personalization-page .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personalization-page .approachGrid,
+  .personalization-page .benefitsTabContent {
+    grid-template-columns: 1fr;
+  }
+
+  .personalization-page .eraGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personalization-page .stepBodyInner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .personalization-page .stepSvgWrap {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .personalization-page .heroProgressLabel {
+    font-size: 1rem;
+  }
+}
+
+/* MOBILE */
+
 @media (max-width: 768px) {
+  .personalization-page .hero {
+    padding: 32px 1.25rem 44px;
+    gap: 32px;
+  }
+
+  .personalization-page .section,
+  .personalization-page .statsBar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .personalization-page .section {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .personalization-page .sectionHeader {
+    margin-bottom: 34px;
+  }
+
+  .personalization-page .heroTitle {
+    font-size: 32px;
+  }
+
+  .personalization-page .heroText,
+  .personalization-page .heroTextLast,
+  .personalization-page .bodyText {
+    text-align: left;
+  }
+
+  .personalization-page .heroActions,
+  .personalization-page .futureBannerActions {
+    flex-direction: column;
+  }
+
+  .personalization-page .btnPrimary,
+  .personalization-page .btnSecondary,
+  .personalization-page .btnWhite,
+  .personalization-page .btnOutlineWhite,
+  .personalization-page .btnBannerPrimary,
+  .personalization-page .btnBannerSecondary {
+    width: 100%;
+  }
+
+  .personalization-page .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personalization-page .outcomesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .personalization-page .stepsTimeline::before {
+    display: none;
+  }
+
+  .personalization-page .stepRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .personalization-page .stepMarker {
+    display: none;
+  }
+
+  .personalization-page .stepBody {
+    padding: 20px;
+  }
+
+  .personalization-page .stepBody:hover {
+    transform: none;
+  }
+
+  .personalization-page .futureBanner {
+    padding: 44px 24px;
+  }
+
+  .personalization-page .eraGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .personalization-page .tabBtn {
+    flex: 1 1 calc(50% - 12px);
+  }
+
   .personalization-page .neu-breadcrumb-nav {
     padding: 12px 1rem 0;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 
   .personalization-page .neu-breadcrumb {
-    justify-content: flex-start;
+    justify-content: flex-end;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .personalization-page .hero {
+    padding: 24px 1rem 36px;
+  }
+
+  .personalization-page .section,
+  .personalization-page .statsBar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .personalization-page .heroCard,
+  .personalization-page .benefitsLeft,
+  .personalization-page .benefitsRight,
+  .personalization-page .approachCard,
+  .personalization-page .stepBody,
+  .personalization-page .futureBanner,
+  .personalization-page .eraCard,
+  .personalization-page .intelCard,
+  .personalization-page .statCard {
+    border-radius: var(--neu-radius-lg);
+  }
+
+  .personalization-page .heroCard {
+    padding: 22px;
+  }
+
+  .personalization-page .heroChartRow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .personalization-page .heroLegend {
+    width: 100%;
+  }
+
+  .personalization-page .heroCardFooter {
+    flex-direction: column;
+  }
+
+  .personalization-page .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .personalization-page .approachCard,
+  .personalization-page .benefitsLeft,
+  .personalization-page .benefitsRight {
+    padding: 22px;
+  }
+
+  .personalization-page .stepSvgWrap {
+    min-height: 200px;
+    padding: 14px;
+  }
+
+  .personalization-page .stepVizRingWrap {
+    flex-direction: column;
+  }
+
+  .personalization-page .stepVizPathway {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .personalization-page .benefitsTabs {
+    flex-direction: column;
+  }
+
+  .personalization-page .tabBtn {
+    width: 100%;
+  }
+
+  .personalization-page .intelCard {
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .personalization-page .futureBanner {
+    padding: 34px 18px;
+  }
+
+  .personalization-page .futureBanner::before,
+  .personalization-page .futureBanner::after {
+    display: none;
+  }
+
+  .personalization-page .neu-breadcrumb-nav {
+    padding: 12px 0.75rem 0;
+  }
+
+  .personalization-page .neu-breadcrumb-item {
+    font-size: 13px;
   }
 }
