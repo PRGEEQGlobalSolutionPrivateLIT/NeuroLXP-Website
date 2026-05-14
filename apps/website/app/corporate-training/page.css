@@ -282,11 +282,7 @@ p {
   stroke-width: 2.2;
 }
 
-.neu-btn:hover {
-  transform: translateY(0);
-  box-shadow: var(--shadow-pressed);
-}
-
+.neu-btn:hover,
 .neu-btn:active {
   transform: translateY(0);
   box-shadow: var(--shadow-pressed);
@@ -620,36 +616,39 @@ p {
   align-items: center;
 }
 
+/* CHALLENGE CARDS ALIGNMENT FIX */
 .ct-challenges-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
-.ct-challenges-grid .challenge-card {
-  grid-column: span 2;
-  border: 1px solid rgba(90, 80, 242, 0.18);
-}
-
-.ct-challenges-grid .challenge-card:nth-child(4) {
-  grid-column: 2 / 4;
-}
-
+.ct-challenges-grid .challenge-card,
+.ct-challenges-grid .challenge-card:nth-child(4),
 .ct-challenges-grid .challenge-card:nth-child(5) {
-  grid-column: 4 / 6;
+  grid-column: auto;
 }
 
 .challenge-card {
-  padding: 28px 26px 26px;
+  padding: 28px 26px 22px;
   border-radius: 12px;
   background: var(--neu-surface);
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  min-height: 340px;
+  min-height: 552px;
+  height: 100%;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows:
+    auto
+    auto
+    minmax(64px, auto)
+    minmax(126px, auto)
+    auto
+    1fr;
+  align-items: start;
+  border: 1px solid rgba(90, 80, 242, 0.18);
 }
 
 .challenge-card:hover {
@@ -703,14 +702,23 @@ p {
   line-height: 1.45;
   margin-bottom: 14px;
   text-align: center;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .challenge-description {
-  margin-bottom: 24px;
+  margin: 0 0 22px;
   color: var(--neu-text-secondary);
   line-height: 1.8;
   font-size: 18px;
   text-align: center;
+  max-width: 100%;
+  min-height: 126px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .challenge-pill {
@@ -725,15 +733,21 @@ p {
   color: var(--neu-primary);
   font-size: 0.82rem;
   font-weight: 700;
-  margin-bottom: 12px;
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 }
 
 .challenge-solution-card {
-  padding: 18px 18px;
+  width: 100%;
+  min-height: 150px;
+  padding: 18px;
   border-radius: 14px;
   background: var(--neu-surface);
   box-shadow: var(--shadow-pressed);
+  margin-top: 0;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .challenge-answer {
@@ -766,6 +780,7 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* USECASE CARDS ALIGNMENT */
 .usecase-card {
   display: flex;
   flex-direction: column;
@@ -776,6 +791,8 @@ p {
   box-shadow: var(--shadow-raised);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border: 1px solid rgba(90, 80, 242, 0.18);
+  min-height: 360px;
+  height: 100%;
 }
 
 .usecase-card:hover {
@@ -792,6 +809,7 @@ p {
   background: var(--neu-surface);
   box-shadow: 6px 6px 12px #A3B1C6, -6px -6px 12px #FFFFFF;
   transition: all 0.25s ease;
+  flex: 0 0 auto;
 }
 
 .uc-icon:hover {
@@ -808,6 +826,9 @@ p {
 .uc-title {
   font-size: 24px;
   font-weight: 800;
+  min-height: 64px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .uc-desc {
@@ -821,6 +842,7 @@ p {
   font-weight: 700;
   color: var(--neu-primary);
   text-decoration: none;
+  margin-top: auto;
 }
 
 .uc-link:hover {
@@ -851,28 +873,17 @@ p {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.challenge-description {
-  margin-top: 16px;
-  color: var(--neu-text-secondary);
-  line-height: 1.8;
-  font-size: 18px;
-  max-width: 100%;
-}
-
 .usecase-cards-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   margin-top: 28px;
+  align-items: stretch;
 }
 
-.usecase-neu-card {
-  grid-column: span 2;
-  border: 1px solid rgba(90, 80, 242, 0.18);
-}
-
+.usecase-neu-card,
 .usecase-neu-card:nth-child(7) {
-  grid-column: 3 / 5;
+  grid-column: auto;
 }
 
 .usecase-neu-card {
@@ -882,6 +893,12 @@ p {
   box-shadow: 7px 7px 14px #A3B1C6, -7px -7px 14px #FFFFFF;
   text-align: center;
   transition: all 0.3s ease;
+  border: 1px solid rgba(90, 80, 242, 0.18);
+  min-height: 310px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .usecase-neu-card:hover {
@@ -900,6 +917,7 @@ p {
   box-shadow: 6px 6px 12px #A3B1C6, -6px -6px 12px #FFFFFF;
   color: var(--neu-primary);
   transition: all 0.3s ease;
+  flex: 0 0 auto;
 }
 
 .usecase-neu-card:hover .usecase-icon-wrapper {
@@ -918,12 +936,17 @@ p {
   font-weight: 700;
   margin-bottom: 12px;
   color: var(--neu-text-primary);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .usecase-card-desc {
   font-size: 18px;
   line-height: 1.6;
   color: var(--neu-text-secondary);
+  margin-top: auto;
 }
 
 .benefit-item:hover {
@@ -1066,28 +1089,16 @@ p {
   }
 
   .ct-challenges-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .ct-challenges-grid .challenge-card {
-    grid-column: span 1;
+  .challenge-card {
+    min-height: 540px;
   }
 
-  .ct-challenges-grid .challenge-card:nth-child(4),
-  .ct-challenges-grid .challenge-card:nth-child(5) {
-    grid-column: span 1;
-  }
-
-  .usecase-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .usecase-neu-card {
-    grid-column: span 1;
-  }
-
-  .usecase-neu-card:nth-child(7) {
-    grid-column: span 2;
+  .usecase-cards-grid,
+  .ct-usecases-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .benefit-list-grid {
@@ -1138,7 +1149,8 @@ p {
   .ct-stats-grid,
   .ct-challenges-grid,
   .ct-usecases-grid,
-  .bv-metric-row {
+  .bv-metric-row,
+  .usecase-cards-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1173,21 +1185,30 @@ p {
   }
 
   .challenge-card {
-    padding: 28px 24px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .challenge-q,
+  .challenge-description,
+  .challenge-solution-card,
+  .uc-title,
+  .usecase-card-title {
     min-height: auto;
   }
 
-  .usecase-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .challenge-solution-card {
+    margin-top: 0;
   }
 
+  .usecase-card,
   .usecase-neu-card {
-    grid-column: span 1;
+    min-height: auto;
   }
 
-  .usecase-neu-card:nth-child(7) {
-    grid-column: span 1;
+  .challenge-card {
+    padding: 28px 24px;
   }
 
   .usecase-neu-card {
