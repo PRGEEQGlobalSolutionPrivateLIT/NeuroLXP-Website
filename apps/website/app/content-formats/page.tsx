@@ -29,7 +29,7 @@ const coreFormats = [
       "Collaborative real-time documents",
     ],
     image: {
-      src: "/photo-1504868584819-f8e8b4b6d7e3.jpeg",
+      src: "/documents_presentations.jpeg",
       alt: "Documents and presentations on a desk with laptop",
     },
   },
@@ -45,7 +45,7 @@ const coreFormats = [
       "AI-generated video",
     ],
     image: {
-      src: "/photo-1574717024653-61fd2cf4d44d.webp",
+      src: "/Video_Media_Learniing.jpg.jpeg",
       alt: "Video streaming and media learning platform",
     },
   },
@@ -61,7 +61,7 @@ const coreFormats = [
       "LTI (Learning Tools Interoperability)",
     ],
     image: {
-      src: "/photo-1555066931-4365d14bab8c.webp",
+      src: "/E-Learning_Standards_Packages.jpg.jpeg",
       alt: "eLearning code and SCORM standards",
     },
   },
@@ -76,7 +76,7 @@ const coreFormats = [
       "Mobile apps",
     ],
     image: {
-      src: "/photo-1547658719-da2b51169166.webp",
+      src: "/Modern-Web-Based-Content.jpg.jpeg",
       alt: "Modern web development and responsive design",
     },
   },
@@ -91,7 +91,7 @@ const coreFormats = [
       "Interactive presentation tools",
     ],
     image: {
-      src: "/photo-1611532736597-de2d4265fba3.webp",
+      src: "/Interactive-Engaging-Learning.jpg.jpeg",
       alt: "Interactive learning and gamification",
     },
   },
@@ -106,7 +106,7 @@ const coreFormats = [
       "AI-powered documentation",
     ],
     image: {
-      src: "/photo-1558655146-9f40138edfeb.webp",
+      src: "/Creative-Knowledge-Content.jpg.jpeg",
       alt: "Creative design tools and knowledge management",
     },
   },
