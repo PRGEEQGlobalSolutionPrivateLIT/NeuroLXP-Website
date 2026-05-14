@@ -94,7 +94,7 @@ export default function Footer() {
               <li onClick={() => router.push("/TermsAcceptanceDeclaration")}>
                 Terms of Declaration
               </li>
-              <li onClick={() => router.push("/talk-to-our-expert")}>
+              <li onClick={() => router.push("/contact-us")}>
                 Support
               </li>
               
